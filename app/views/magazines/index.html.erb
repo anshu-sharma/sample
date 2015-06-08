@@ -1,0 +1,25 @@
+<div class="table-responsive">
+<table class="table table-condensed ">
+	<tr>
+		<th class="table-heading">Title</th>
+		<th class="table-heading">Description</th>
+		<th class="table-heading">Price</th>
+		<th class="table-heading"> </th>
+		<th class="table-heading"> </th>
+		<th class="table-heading"> </th>
+	</tr>
+	<tbody>
+		<% @magazines.each do |magazine| %>
+      <tr>
+        <td class="active"><%=magazine.title %></td>
+        <td class="active"><%= magazine.description%></td>
+        <td class="active"><%= magazine.price%></td>
+        <td class="active"><%= link_to "Edit", edit_magazine_path(magazine)%></td>
+        <td class="active"><%= link_to "Show", magazine_path(magazine)%></td>
+        <td class="active"><%= link_to 'Delete', magazine_path(magazine), method: :delete%></td>
+        
+     </tr>
+    <% end %>
+	</tbody>
+</table>
+</div>

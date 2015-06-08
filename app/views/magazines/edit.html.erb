@@ -1,0 +1,21 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Update</h1>
+    <%= form_for(@magazine) do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title ,class:"form-control" %>
+
+      <%= f.label :description%>
+      <%= f.text_field :description,class:"form-control"  %>
+
+      <%= f.label :price%>
+      <%= f.text_field :price,class:"form-control" %>
+
+
+      <%= f.submit "save changes",class:"btn btn-default" %>
+      
+     <% end %>
+  </div>
+</div>

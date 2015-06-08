@@ -1,0 +1,72 @@
+<div class="container" style ='background-color:lightgrey';>
+<div class="row">    
+<h1 class="text-center">
+SHOW ALL DATA
+</h1>
+<!-- <table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Price</th>
+		
+	</tr>
+	<tbody>
+      <tr>
+        <td><%=@magazine.title %></td>
+        <td><%= @magazine.description%></td>
+        <td><%= @magazine.price%></td>
+        
+     </tr>
+	</tbody>
+</table> -->
+<p class="text-center text-inline">TITLE  : <%= @magazine.title  %> </p>
+<p class="text-center">DESCRIPTION: <%= @magazine.description%> </p>
+<p class="text-center">PRICE: <%= @magazine.price %> </p>
+ <div class="col-md-6 col-md-offset-3">
+<table class="table color1">
+    <h1 class="text-center">Articles</h1>
+     <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>comments</th>
+          <th>         </th>
+     </tr>
+     <tbody>
+     	<%unless @articals.blank?%>
+		     <% @articals.each do |art| %>
+                <tr>
+                    <td><%=art.title %></td>
+                    <td><%= art.content%></td>
+                    <td>
+                    <table>
+                        <tr>
+                            <%comments = Comment.where(article_id: art.id)%>
+                            <% comments.each do |cmt| %>
+                               <td> <%=cmt.content %></td>
+                                 <td class="active"><%= link_to 'Delete',[@magazine,art,cmt],method: :delete%></td>
+                              
+                        </tr>
+                        <%end%>
+                    </table>
+                    </td>
+                        <td><%= button_tag "comments",id:art.id%>
+                            <div class="show" style= "display:none !important" id=<%= art.id%>div >
+                                <%= render "magazines/comment" ,artical:art%>
+                        
+                            </div>
+                        </td>
+                        <td class="active color1"><%= link_to 'Delete',[@magazine,art],method: :delete%></td>
+                    </tr>
+                     <%end%>
+                     <%end%>
+            
+     </tbody>
+</table>
+
+
+<%= render "magazines/article"%>
+</div>
+</div>
+</div>
+
+

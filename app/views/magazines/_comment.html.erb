@@ -1,0 +1,7 @@
+<p><h2>Post Comments</h2><br>
+  <%= form_for([@magazine,artical,@comment]) do |c| %>
+  <%= c.label :comment%>
+  <%= c.text_field :content,class:"form-control color1"%><br />
+  <%=c.submit "Post" %>
+  <% end %>
+</p>

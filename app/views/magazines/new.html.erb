@@ -1,0 +1,42 @@
+<div  style ='background-color: #2ba6cb';>
+<div class="row" >
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Magazine Details</h1>
+    <%= form_for(@magazine) do |f| %>
+<p>
+      <%= f.label :title %>
+      <%= f.text_field :title,class:"form-control color1" %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description ,class:"form-control color1"%>
+
+      <%= f.label :price%>
+      <%= f.text_field :price ,class:"form-control color1"%>
+</p>
+      <%=f.fields_for :articles do |artical| %>
+       <%= render "magazines/articleform", :f => artical %>
+      <% end %>
+     <p> <%= f.submit "submit" %> </p>
+    <% end %> 
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

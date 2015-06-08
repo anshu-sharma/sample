@@ -1,0 +1,9 @@
+<p>
+<%= form_for([@magazine,@article]) do|f|%>
+  <%= f.label :title %>
+  <%= f.text_field :title,class:"form-control"%><br />
+  <%= f.label :content %>
+  <%= f.text_field :content,class:"form-control"%><br />
+  <%= f.submit "submit"%>
+<%end%>
+</p>
